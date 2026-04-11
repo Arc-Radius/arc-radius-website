@@ -2,6 +2,7 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/sections/Hero';
 import Problem from '../components/sections/Problem';
+import Trust from '../components/sections/Trust';
 import Impact from '../components/sections/Impact';
 import Solution from '../components/sections/Solution';
 
@@ -16,6 +17,7 @@ export default function Landing() {
         style={{ background: 'linear-gradient(to bottom, #001d3a, #f8fafc)' }}
       />
       <Problem />
+      <Trust />
       <Impact />
       <Solution />
       <Footer />

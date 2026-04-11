@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Play, PenLine, Scale, Phone } from 'lucide-react';
+import { ArrowRight, Play, PenLine, Scale, TextSearch } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArcRadiusLogo } from '../ui/ArcRadiusLogo';
 
@@ -7,13 +7,34 @@ const ROTATING_STATS = [
   { value: '39%', text: 'of LGBTQ+ youth seriously considered suicide last year' },
   { value: '530+', text: 'anti-LGBTQ+ bills proposed in 2024 alone' },
   { value: '50%', text: 'unable to access desired mental health care' },
-  { value: '90%', text: 'report negative impact from anti-LGBTQ+ politics' },
+  {
+    value: '90%',
+    text: 'of LGBTQ+ young people report adverse well-being impacts linked to recent political developments',
+  },
 ];
 
 const FEATURE_PREVIEWS = [
-  { icon: Scale, title: 'Policy Navigator', desc: 'Track legislation across all 50 states in real-time', color: '#001d3a', to: '/solution' },
-  { icon: PenLine, title: 'Letter Generation', desc: 'Create advocacy emails, info cards, and flyers', color: '#001d3a', to: '/solution' },
-  { icon: Phone, title: 'Crisis Connect', desc: 'One-tap access to LGBTQ+ crisis resources', color: '#FDB515', to: '/solution' },
+  {
+    icon: Scale,
+    title: 'Policy Navigator',
+    desc: 'Understand — identify legislation that is relevant to you using a classification pipeline on bill data',
+    color: '#001d3a',
+    to: '/solution',
+  },
+  {
+    icon: TextSearch,
+    title: 'GraphRAG explanations',
+    desc: 'Interpret — ask natural-language questions and get answers grounded in bill text via GraphRAG',
+    color: '#001d3a',
+    to: '/solution',
+  },
+  {
+    icon: PenLine,
+    title: 'Letter Generation',
+    desc: 'Act — emails, info cards, and flyers generated from retrieved policy context so responses stay concrete',
+    color: '#001d3a',
+    to: '/solution',
+  },
 ];
 
 export default function Hero() {
@@ -102,8 +123,10 @@ export default function Hero() {
             Arc Radius
           </h1>
 
-          <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-            Navigating rights, resources, and support for LGBTQ+ young adults — understand how legislation affects you and get the tools to respond.
+          <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+            A data-driven platform for LGBTQ+ young adults: see how legislation affects your rights, get plain-language
+            explanations, and respond with grounded actions — classification, GraphRAG-based interpretation, and action
+            generation in one flow.
           </p>
 
           {/* Stat ticker */}
@@ -141,9 +164,9 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Source */}
-          <p className="text-xs text-white/30 mt-2">
-            Source:{' '}
+          {/* Sources — survey stats vs. legislative volume */}
+          <p className="text-xs text-white/30 mt-2 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            Survey statistics:{' '}
             <a
               href="https://www.thetrevorproject.org/survey-2024/"
               target="_blank"
@@ -152,6 +175,7 @@ export default function Hero() {
             >
               The Trevor Project 2024 National Survey
             </a>
+            . Bill counts reflect public tracking of state-level proposals (same figures as the brief below).
           </p>
         </div>
       </div>

@@ -9,8 +9,8 @@ export default function Impact() {
           tag="Why It Matters"
           tagBg="#001d3a10"
           tagColor="#001d3a"
-          title="The Impact of Solving This"
-          subtitle="Addressing these challenges isn't just about convenience — it's about saving lives and empowering families navigating an increasingly complex landscape."
+          title="Why clearer policy tooling matters"
+          subtitle="When people can verify what a bill does, see why it matters to them, and choose a proportionate response, the product stops being a dashboard and starts being infrastructure for dignity and civic voice."
         />
 
         <div className="grid md:grid-cols-2 gap-5">

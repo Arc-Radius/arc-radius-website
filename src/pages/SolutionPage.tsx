@@ -74,7 +74,8 @@ export default function SolutionPage() {
             How Arc Radius Works
           </h1>
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-lg">
-            Navigate rights, resources, and support — understand how legislation affects LGBTQ+ young adults and get the tools to respond.
+            A data-driven path from bills to meaning to action: classification, GraphRAG explanations, and grounded
+            advocacy generation — plus crisis support info.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
             <Link
@@ -119,7 +120,12 @@ export default function SolutionPage() {
 
               {/* Content */}
               <div className="flex-1">
-                <h3 className="text-2xl font-semibold text-[#001d3a] mb-3">{feature.title}</h3>
+                <div className="mb-3">
+                  <h3 className="text-2xl font-semibold text-[#001d3a] leading-tight">{feature.title}</h3>
+                  {feature.product && (
+                    <p className="text-lg font-medium text-slate-500 mt-1">{feature.product}</p>
+                  )}
+                </div>
                 <p className="text-slate-500 leading-relaxed mb-4">{feature.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {feature.tech.split(' · ').map((t) => (

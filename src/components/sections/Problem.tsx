@@ -10,8 +10,8 @@ export default function Problem() {
           tag="The Problem"
           tagBg="#FDB51520"
           tagColor="#b8860b"
-          title="A Mental Health Crisis"
-          subtitle="LGBTQ+ youth in the United States face a mental health crisis of unprecedented proportions. Data from The Trevor Project's 2024 National Survey of 18,000+ youth ages 13-24 paints a stark picture."
+          title="Policy, Information, and Trust"
+          subtitle="LGBTQ+ young adults in the U.S. are navigating a rapidly evolving and often hostile policy landscape without accessible ways to see how legislation affects their rights and daily lives. Survey data still paints a stark wellbeing picture — The Trevor Project’s 2024 National Survey of 18,000+ youth ages 13–24 is one window into that harm."
         />
 
         {/* Stat cards */}
@@ -55,20 +55,41 @@ export default function Problem() {
                 The Core Problem
               </h3>
               <p className="text-slate-500 leading-relaxed text-sm">
-                LGBTQ+ youth lack a unified, intelligent platform that combines
-                local resource discovery with real-time policy awareness and
-                crisis support connections. Current solutions are fragmented
-                across multiple apps, websites, and organizations.
+                Information about bills exists, but it is scattered, written in technical legal language, and hard to
+                connect to your situation. It is difficult to know what is reliable, whether a measure affects you
+                personally, and what actions — if any — make sense. Arc Radius exists to move people from confusion and
+                uncertainty toward understanding and informed civic action, with crisis and resources available when
+                support matters as much as policy clarity.
               </p>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             {[
-              { icon: Heart, color: '#FDB515', title: 'Healthcare Gap', desc: '84% want care, but only half can access it' },
-              { icon: Scale, color: '#001d3a', title: 'Policy Chaos', desc: '375+ active anti-LGBTQ bills across 43+ states' },
-              { icon: AlertTriangle, color: '#FDB515', title: 'Discrimination', desc: '60% faced discrimination based on identity' },
-              { icon: Users, color: '#001d3a', title: 'Family Impact', desc: '45% of trans youth families considered relocating' },
+              {
+                icon: Heart,
+                color: '#FDB515',
+                title: 'Healthcare stress',
+                desc: '84% want mental health care, but only half can access it — policy and access barriers stack on top of politics',
+              },
+              {
+                icon: Scale,
+                color: '#001d3a',
+                title: 'Legislative volume',
+                desc: '530+ anti-LGBTQ+ bills proposed in 2024 alone; bills touch healthcare, schools, IDs, public life, and more',
+              },
+              {
+                icon: AlertTriangle,
+                color: '#FDB515',
+                title: 'Hostile climate',
+                desc: '60% faced discrimination based on identity — daily safety and dignity are on the line',
+              },
+              {
+                icon: Users,
+                color: '#001d3a',
+                title: 'Family decisions',
+                desc: '45% of trans/nonbinary youth families have considered relocating because of anti-LGBTQ+ policy',
+              },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
                 <item.icon className="shrink-0 mt-0.5" size={18} style={{ color: item.color }} />
