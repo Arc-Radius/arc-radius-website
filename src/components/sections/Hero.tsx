@@ -176,14 +176,14 @@ export default function Hero() {
             </a>
             . Anti-LGBTQ+ bill introductions in 2025 follow{' '}
             <a
-              href="https://www.aclu.org/news/lgbt-rights/aclu-tracks-record-number-anti-lgbtq-bills-2025"
+              href="https://www.aclu.org/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-white/50 transition-colors"
             >
-              ACLU state-level tracking
+              ACLU
             </a>{' '}
-            (same figure as the brief below).
+            state-level tracking (same figure as the brief below).
           </p>
         </div>
       </div>
