@@ -6,7 +6,6 @@ import JourneyPage from './pages/JourneyPage';
 import SolutionPage from './pages/SolutionPage';
 import DemoPage from './pages/DemoPage';
 import TeamPage from './pages/TeamPage';
-import Prototype from './pages/Prototype';
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Route path="/solution" element={<SolutionPage />} />
         <Route path="/demo" element={<DemoPage />} />
         <Route path="/team" element={<TeamPage />} />
-        <Route path="/prototype" element={<Prototype />} />
       </Routes>
     </BrowserRouter>
   );

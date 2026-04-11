@@ -1,15 +1,7 @@
 import { useState } from 'react';
-import {
-  Play,
-  Scale,
-  PenLine,
-  Phone,
-  ArrowRight,
-  ExternalLink,
-} from 'lucide-react';
+import { Play, Scale, PenLine, Phone } from 'lucide-react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { Link } from 'react-router-dom';
 
 const DEMO_HIGHLIGHTS = [
   {
@@ -184,46 +176,6 @@ export default function DemoPage() {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ Try It / Prototype CTA ═══ */}
-      <section className="py-16 px-6">
-        <div className="max-w-3xl mx-auto">
-          <div
-            className="rounded-2xl p-8 md:p-12 text-center"
-            style={{ backgroundColor: '#001d3a' }}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-3">
-              Try the Prototype
-            </h2>
-            <p className="text-white/50 mb-8 max-w-md mx-auto text-sm leading-relaxed">
-              Explore the interactive prototype — browse bills, generate
-              advocacy content, and see the full experience.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link
-                to="/prototype"
-                className="group inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold transition-all hover:brightness-110 text-[#001d3a]"
-                style={{ backgroundColor: '#FDB515' }}
-              >
-                Launch Prototype
-                <ArrowRight
-                  size={16}
-                  className="group-hover:translate-x-0.5 transition-transform"
-                />
-              </Link>
-              <a
-                href="https://github.com/your-repo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white/10 text-white px-7 py-3 rounded-full text-sm font-semibold border border-white/25 hover:bg-white/15 transition-all"
-              >
-                View Source
-                <ExternalLink size={14} />
-              </a>
-            </div>
           </div>
         </div>
       </section>
