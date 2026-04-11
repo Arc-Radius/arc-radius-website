@@ -2,10 +2,11 @@ import {
   Scale,
   Phone,
   PenLine,
+  TextSearch,
   Sparkles,
   Navigation,
-  Stethoscope,
-  Zap,
+  ShieldAlert,
+  MessageCircleWarning,
 } from 'lucide-react';
 import type {
   Stat,
@@ -58,8 +59,12 @@ export const STATS: Stat[] = [
   { value: '39%', label: 'seriously considered suicide in the past year (46% among trans/nonbinary youth)', highlight: true },
   { value: '12%', label: 'attempted suicide in the past year', highlight: true },
   { value: '50%', label: 'unable to access desired mental health care despite 84% wanting it', highlight: false },
-  { value: '90%', label: 'report negative well-being impacts from anti-LGBTQ+ politics', highlight: false },
-  { value: '530+', label: 'anti-LGBTQ+ bills proposed in 2024 alone', highlight: false },
+  {
+    value: '90%',
+    label: 'of LGBTQ+ young people report adverse well-being impacts linked to political developments',
+    highlight: false,
+  },
+  { value: '600+', label: 'anti-LGBTQ+ bills introduced in state legislatures in 2025 (ACLU)', highlight: false },
   { value: '28%', label: 'of youth mental health facilities offer LGBTQ-specific services', highlight: true },
 ];
 
@@ -68,25 +73,37 @@ export const STATS: Stat[] = [
 export const FEATURES: Feature[] = [
   {
     icon: Scale,
-    title: 'Policy Navigator',
+    title: 'Understand',
+    product: 'Policy Navigator',
     description:
-      'Real-time legislative tracking across all 50 states powered by a three-Lambda AWS pipeline. LegiScan data is polled via EventBridge, classified by a fine-tuned LegalBERT model on SageMaker, and embedded into a Neo4j knowledge graph via Bedrock Titan V2. Users explore bills by state, see stance predictions (supportive vs harmful), and ask natural-language questions answered by GraphRAG over bill text chunks.',
+      'Identify legislation that is relevant to you. LegiScan feeds a three-Lambda pipeline: bills are classified with a fine-tuned LegalBERT model on SageMaker, paired with stance signals, and written into a Neo4j graph so exploration stays tied to real text — not headlines alone.',
     color: 'from-teal-400 to-cyan-400',
-    tech: 'LegalBERT · SageMaker · Neo4j GraphRAG · Bedrock Embeddings · EventBridge',
+    tech: 'LegiScan · LegalBERT · SageMaker · EventBridge',
+  },
+  {
+    icon: TextSearch,
+    title: 'Interpret',
+    product: 'Knowledge graph',
+    description:
+      'Explain what bills do, why they matter, and how they are related to other legislation in plain language. Bill text is chunked, embedded with Bedrock Titan V2, and retrieved from the knowledge graph so natural-language questions pull grounded answers instead of generic summaries.',
+    color: 'from-sky-400 to-indigo-400',
+    tech: 'Neo4j · Vector index · GraphRAG · Bedrock Titan V2 · Chunked bill text',
   },
   {
     icon: PenLine,
-    title: 'Letter Generation',
+    title: 'Act',
+    product: 'Letter Generation',
     description:
-      'Generate personalized advocacy content to engage with legislators. Draft emails to state representatives informed by bill analysis, create shareable info cards summarizing key legislation, and produce printable flyers for community distribution — all grounded in classified bill data and policy context from the knowledge graph.',
+      'Turn understanding into civic steps: draft representative emails, phone scripts, shareable info cards, and printable flyers. Outputs are conditioned on retrieved bill context, GraphRAG-style explanations, and stance classification so actions stay specific and accountable.',
     color: 'from-rose-400 to-orange-400',
-    tech: 'Bedrock Claude · Bill Context Retrieval · Template Engine · Export to PDF/Image',
+    tech: 'AWS Bedrock · Retrieval · Templates',
   },
   {
     icon: Phone,
-    title: 'Crisis Connect',
+    title: 'Support',
+    product: 'Crisis Connect',
     description:
-      'One-tap access to LGBTQ+-specific crisis lines including the Trevor Project (call, text, chat for ages 13-24), Trans Lifeline (by and for trans people — never contacts authorities without consent), the 988 Suicide & Crisis Lifeline, and Crisis Text Line. Includes clear privacy guidance so users know exactly what to expect before reaching out.',
+      'When you need a person, not a policy brief: one-tap LGBTQ+ crisis lines (Trevor Project ages 13–24, Trans Lifeline, 988, Crisis Text Line) with explicit privacy guidance so expectations are clear before you reach out.',
     color: 'from-amber-400 to-yellow-400',
     tech: 'Curated Resource Database · Privacy-First Design · Deep Linking',
   },
@@ -95,22 +112,42 @@ export const FEATURES: Feature[] = [
 // ─── Impact ──────────────────────────────────────────────
 
 export const IMPACT_ITEMS: ImpactItem[] = [
-  { icon: Sparkles, title: 'Life-Saving Potential', gold: true, desc: 'Research shows LGBTQ+ youth in accepting communities have significantly lower suicide attempt rates. Connecting youth to affirming spaces directly addresses the leading cause of death in this population.' },
-  { icon: Navigation, title: 'Information Gap', gold: false, desc: '45% of trans/nonbinary youth families have considered moving states due to anti-LGBTQ+ policies. These families need accessible, accurate information about laws and protections across jurisdictions.' },
-  { icon: Stethoscope, title: 'Healthcare Access Crisis', gold: false, desc: "50% of LGBTQ+ youth who wanted mental health care couldn't access it. Cost, parental permission, and geography are major barriers that better resource discovery can address." },
-  { icon: Zap, title: 'Rapidly Changing Landscape', gold: true, desc: 'With hundreds of bills introduced annually affecting LGBTQ+ rights, static resources become outdated quickly. AI-powered systems can track and synthesize legislative changes in real-time.' },
+  {
+    icon: Sparkles,
+    title: 'From noise to clarity',
+    gold: true,
+    desc: 'When policy news feels overwhelming, user-centered explanations help people decide what deserves attention — and what they can safely ignore — without needing a law degree.',
+  },
+  {
+    icon: Navigation,
+    title: 'Fragmentation costs trust',
+    gold: false,
+    desc: 'The same story is told differently in ten places. Without a single pipeline grounded in bill text, it is hard to know what is accurate, whether it applies to you, or who benefits from a given framing.',
+  },
+  {
+    icon: ShieldAlert,
+    title: 'Rights touch everyday life',
+    gold: false,
+    desc: 'Healthcare, schools, IDs, sports, public accommodations — anti-LGBTQ+ bills cluster in domains that determine whether young adults can learn, heal, travel, and participate fully.',
+  },
+  {
+    icon: MessageCircleWarning,
+    title: 'Informed civic action',
+    gold: true,
+    desc: 'Understanding should not dead-end in anxiety. Pairing interpretation with concrete actions — letters, call scripts, cards, community handouts — helps people respond instead of spiraling.',
+  },
 ];
 
 // ─── Techniques (updated) ────────────────────────────────
 
 export const TECHNIQUES: Technique[] = [
-  { name: 'LegalBERT Classification', desc: 'Fine-tuned relevance classifier using custom LegalBERTClassifier (raw CLS token). Threshold-tuned at 0.60 with pos_weight=3.0 for class imbalance.', area: 'Policy Navigator' },
+  { name: 'LegalBERT Classification', desc: 'Fine-tuned relevance classifier on bill titles and short descriptions only (no metadata at this stage). Custom LegalBERTClassifier (raw CLS token), threshold 0.60, pos_weight=3.0 for class imbalance.', area: 'Policy Navigator' },
   { name: 'Stance Detection', desc: 'LogReg over 6 political context features: state R-sponsorship ratio, dominant party, percent nay, R/D/other sponsor counts.', area: 'Policy Navigator' },
   { name: 'Serverless Inference', desc: 'SageMaker serverless endpoint (3072MB, ~780ms) packages custom model + LogReg + state profiles in a single model.tar.gz.', area: 'Policy Navigator' },
   { name: 'Three-Lambda Pipeline', desc: 'EventBridge → Poll (LegiScan) → Classify (SageMaker) → Embed (Bedrock + Neo4j). Incremental saves every 100 bills.', area: 'Policy Navigator' },
-  { name: 'GraphRAG', desc: 'Bill text chunked at sentence boundaries (500 chars, 50 overlap), embedded via Titan V2 (1024-dim), Neo4j cosine vector index.', area: 'Policy Navigator' },
+  { name: 'Knowledge Graph Retrieval', desc: 'GraphRAG-style Q&A: bill text chunked at section boundaries, embedded via Titan V2 (1024-dim), Neo4j cosine vector index.', area: 'Policy Navigator' },
   { name: 'Neo4j Schema', desc: 'Bill, State, Session, Topic, Document, Chunk nodes. Relationships: IN_STATE, IN_SESSION, HAS_TOPIC, HAS_DOCUMENT, HAS_CHUNK.', area: 'Policy Navigator' },
-  { name: 'Advocacy Generation', desc: 'Bedrock Claude generates letters, info cards, and flyers using retrieved bill context and stance classification as grounding.', area: 'Letter Generation' },
+  { name: 'Advocacy Generation', desc: 'Bedrock Claude generates letters, phone scripts, info cards, and flyers using retrieved bill context and stance classification as grounding.', area: 'Letter Generation' },
   { name: 'Topic Categorization', desc: '9 issue categories: healthcare, sports, education, curriculum, facilities, religious exemption, identity docs, expression, civil rights.', area: 'Policy Navigator' },
 ];
 
@@ -123,7 +160,7 @@ export const COMPETITORS: Competitor[] = [
   { name: 'Everywhere Is Queer', resources: true, policy: false, crisis: false },
   { name: 'QLIST', resources: true, policy: false, crisis: false },
   { name: 'Voda', resources: false, policy: false, crisis: false },
-  { name: 'Arc Radius', resources: true, policy: true, crisis: true, highlight: true },
+  { name: 'ArcRadius', resources: true, policy: true, crisis: true, highlight: true },
 ];
 
 export const STARTUPS: MarketPlayer[] = [
@@ -141,7 +178,11 @@ export const ESTABLISHED_PLAYERS: MarketPlayer[] = [
 // ─── Tech Stack ──────────────────────────────────────────
 
 export const TECH_STACK: TechStackCategory[] = [
-  { category: 'Data Sources', items: ['LegiScan', 'SAMHSA', 'MAP', 'Findhelp', 'PubMed'] },
+  {
+    category: 'Training & labels',
+    items: ['LegiScan (bill text & metadata)', 'ACLU LGBTQ+ bill labels', 'Plural & related org datasets'],
+  },
+  { category: 'Product & resources', items: ['SAMHSA', 'MAP', 'Findhelp', 'PubMed'] },
   { category: 'ML / NLP', items: ['LegalBERT', 'LogReg', 'Bedrock Titan V2', 'Bedrock Claude'] },
   { category: 'Infrastructure', items: ['AWS Lambda', 'SageMaker', 'EventBridge', 'S3', 'Neo4j AuraDB'] },
   { category: 'Frontend', items: ['React Native', 'Expo Router', 'NativeWind', 'TypeScript'] },
@@ -150,7 +191,7 @@ export const TECH_STACK: TechStackCategory[] = [
 export const PIPELINES: Pipeline[] = [
   { feature: 'Bill Classification', flow: 'LegiScan → LegalBERT → Stance LogReg → Labels' },
   { feature: 'Knowledge Graph', flow: 'Bill Text → Chunk → Bedrock Embed → Neo4j Vector Index' },
-  { feature: 'Advocacy Generation', flow: 'Bill Context → Retrieval → Claude → Letter/Card/Flyer' },
+  { feature: 'Advocacy Generation', flow: 'Bill Context → GraphRAG retrieval → Claude → Letter/Phone script/Card/Flyer' },
   { feature: 'Crisis Connect', flow: 'Curated Database → Deep Links → Privacy Guidance' },
 ];
 
@@ -168,4 +209,4 @@ export const AREA_COLORS: Record<string, { bg: string; color: string }> = {
   'Take Action': { bg: '#FDB51520', color: '#b8860b' },
 };
 
-export const FEATURE_ICON_COLORS = ['#001d3a', '#001d3a', '#FDB515'];
+export const FEATURE_ICON_COLORS = ['#001d3a', '#001d3a', '#001d3a', '#FDB515'];

@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import SectionHeader from '../components/ui/SectionHeader';
-import { Check, X } from 'lucide-react';
+import { Check, X, ExternalLink, Play } from 'lucide-react';
 import { ArcRadiusLogoSmall } from '../components/ui/ArcRadiusLogo';
 import {
   FEATURES,
@@ -16,6 +17,8 @@ import {
 } from '../data';
 import type { MarketPlayer } from '../types';
 
+const PRODUCT_URL = 'https://arcradius.netlify.app';
+
 function StartupCard({ player }: { player: MarketPlayer }) {
   return (
     <div className="bg-white rounded-2xl p-6 border border-slate-200/60 hover:border-slate-300 transition-all">
@@ -26,7 +29,7 @@ function StartupCard({ player }: { player: MarketPlayer }) {
       <p className="text-sm text-slate-500 mb-3">{player.product}</p>
       <div className="text-xs text-slate-400 mb-3"><span className="font-semibold text-slate-500">Target:</span> {player.customer}</div>
       <div className="rounded-lg p-3" style={{ backgroundColor: '#FDB51515' }}>
-        <div className="text-xs font-semibold mb-1" style={{ color: '#b8860b' }}>Gap vs. Arc Radius</div>
+        <div className="text-xs font-semibold mb-1" style={{ color: '#b8860b' }}>Gap vs. ArcRadius</div>
         <p className="text-xs" style={{ color: '#9a7209' }}>{player.gap}</p>
       </div>
     </div>
@@ -43,7 +46,7 @@ function EstablishedCard({ player }: { player: MarketPlayer }) {
       <p className="text-sm text-slate-500 mb-3">{player.product}</p>
       <div className="text-xs text-slate-400 mb-3"><span className="font-semibold text-slate-500">Target:</span> {player.customer}</div>
       <div className="rounded-lg p-3 mb-3" style={{ backgroundColor: '#FDB51515' }}>
-        <div className="text-xs font-semibold mb-1" style={{ color: '#b8860b' }}>Gap vs. Arc Radius</div>
+        <div className="text-xs font-semibold mb-1" style={{ color: '#b8860b' }}>Gap vs. ArcRadius</div>
         <p className="text-xs" style={{ color: '#9a7209' }}>{player.gap}</p>
       </div>
       {player.relationship && (
@@ -68,11 +71,31 @@ export default function SolutionPage() {
             The Solution
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#001d3a] mb-4">
-            How Arc Radius Works
+            How ArcRadius Works
           </h1>
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-lg">
-            Navigate rights, resources, and support — understand how legislation affects LGBTQ+ young adults and get the tools to respond.
+            A data-driven path from bills to meaning to action: classification, explanations from the knowledge graph,
+            and grounded advocacy generation — plus crisis support info.
           </p>
+          <div className="mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
+            <Link
+              to="/demo"
+              className="group inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-sm font-semibold transition-all hover:brightness-110 text-[#001d3a]"
+              style={{ backgroundColor: '#FDB515' }}
+            >
+              <Play size={14} className="fill-current shrink-0" />
+              View Demo
+            </Link>
+            <a
+              href={PRODUCT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 bg-slate-50 text-[#001d3a] px-7 py-3 rounded-full text-sm font-semibold border border-slate-200 hover:border-slate-300 hover:bg-slate-100 transition-all"
+            >
+              Open Product
+              <ExternalLink size={14} className="text-slate-500 group-hover:text-[#001d3a] transition-colors shrink-0" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -97,7 +120,12 @@ export default function SolutionPage() {
 
               {/* Content */}
               <div className="flex-1">
-                <h3 className="text-2xl font-semibold text-[#001d3a] mb-3">{feature.title}</h3>
+                <div className="mb-3">
+                  <h3 className="text-2xl font-semibold text-[#001d3a] leading-tight">{feature.title}</h3>
+                  {feature.product && (
+                    <p className="text-lg font-medium text-slate-500 mt-1">{feature.product}</p>
+                  )}
+                </div>
                 <p className="text-slate-500 leading-relaxed mb-4">{feature.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {feature.tech.split(' · ').map((t) => (
@@ -118,7 +146,7 @@ export default function SolutionPage() {
             tagBg="#FDB51520"
             tagColor="#b8860b"
             title="Technical Deep Dive"
-            subtitle="From bill classification to knowledge graph — the full pipeline powering Arc Radius."
+            subtitle="From bill classification to knowledge graph — the full pipeline powering ArcRadius."
           />
 
           {/* Pipeline steps */}
@@ -135,7 +163,7 @@ export default function SolutionPage() {
               ))}
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
               {TECH_STACK.map((stack, i) => (
                 <div key={i}>
                   <div className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-3">{stack.category}</div>
@@ -219,7 +247,7 @@ export default function SolutionPage() {
               </table>
             </div>
             <p className="text-center text-slate-400 mt-6 text-sm">
-              Arc Radius is the <span className="font-semibold text-[#001d3a]">only platform</span> combining all three critical functions.
+              ArcRadius is the <span className="font-semibold text-[#001d3a]">only platform</span> combining all three critical functions.
             </p>
           </div>
         </div>

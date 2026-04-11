@@ -9,6 +9,7 @@ export type Stat = {
 export type Feature = {
   icon: ElementType;
   title: string;
+  product?: string;
   description: string;
   color: string;
   tech: string;

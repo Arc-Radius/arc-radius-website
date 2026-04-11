@@ -9,7 +9,7 @@ import TeamPage from './pages/TeamPage';
 
 function App() {
   return (
-    <BrowserRouter basename="/spring26-mids-capstone">
+    <BrowserRouter basename="/arc-radius-website">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/journey" element={<JourneyPage />} />
