@@ -193,7 +193,7 @@ export default function JourneyPage() {
               {
                 step: '04',
                 title: 'Serve',
-                desc: 'When a user asks a question, GraphRAG retrieves the most relevant chunks from Neo4j and feeds them to Bedrock Claude, which generates a grounded, contextual response — or drafts advocacy content like letters and info cards.',
+                desc: 'When a user asks a question, retrieval over the knowledge graph pulls the most relevant chunks from Neo4j and feeds them to Bedrock Claude, which generates a grounded, contextual response — or drafts advocacy content like letters and info cards.',
               },
             ].map((step, i) => (
               <div key={i} className="flex gap-5">

@@ -83,9 +83,9 @@ export const FEATURES: Feature[] = [
   {
     icon: TextSearch,
     title: 'Interpret',
-    product: 'GraphRAG',
+    product: 'Knowledge graph',
     description:
-      'Explain what bills do, why they matter, and how they are related to other legislation in plain language. Bill text is chunked, embedded with Bedrock Titan V2, and retrieved with GraphRAG so natural-language questions pull grounded answers instead of generic summaries.',
+      'Explain what bills do, why they matter, and how they are related to other legislation in plain language. Bill text is chunked, embedded with Bedrock Titan V2, and retrieved from the knowledge graph so natural-language questions pull grounded answers instead of generic summaries.',
     color: 'from-sky-400 to-indigo-400',
     tech: 'Neo4j · Vector index · GraphRAG · Bedrock Titan V2 · Chunked bill text',
   },
@@ -145,7 +145,7 @@ export const TECHNIQUES: Technique[] = [
   { name: 'Stance Detection', desc: 'LogReg over 6 political context features: state R-sponsorship ratio, dominant party, percent nay, R/D/other sponsor counts.', area: 'Policy Navigator' },
   { name: 'Serverless Inference', desc: 'SageMaker serverless endpoint (3072MB, ~780ms) packages custom model + LogReg + state profiles in a single model.tar.gz.', area: 'Policy Navigator' },
   { name: 'Three-Lambda Pipeline', desc: 'EventBridge → Poll (LegiScan) → Classify (SageMaker) → Embed (Bedrock + Neo4j). Incremental saves every 100 bills.', area: 'Policy Navigator' },
-  { name: 'GraphRAG', desc: 'Bill text chunked at sentence boundaries (500 chars, 50 overlap), embedded via Titan V2 (1024-dim), Neo4j cosine vector index.', area: 'Policy Navigator' },
+  { name: 'Knowledge Graph Retrieval', desc: 'GraphRAG-style Q&A: bill text chunked at section boundaries, embedded via Titan V2 (1024-dim), Neo4j cosine vector index.', area: 'Policy Navigator' },
   { name: 'Neo4j Schema', desc: 'Bill, State, Session, Topic, Document, Chunk nodes. Relationships: IN_STATE, IN_SESSION, HAS_TOPIC, HAS_DOCUMENT, HAS_CHUNK.', area: 'Policy Navigator' },
   { name: 'Advocacy Generation', desc: 'Bedrock Claude generates letters, info cards, and flyers using retrieved bill context and stance classification as grounding.', area: 'Letter Generation' },
   { name: 'Topic Categorization', desc: '9 issue categories: healthcare, sports, education, curriculum, facilities, religious exemption, identity docs, expression, civil rights.', area: 'Policy Navigator' },

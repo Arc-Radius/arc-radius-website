@@ -23,8 +23,8 @@ const FEATURE_PREVIEWS = [
   },
   {
     icon: TextSearch,
-    title: 'GraphRAG explanations',
-    desc: 'Interpret — ask natural-language questions and get answers grounded in bill text via GraphRAG',
+    title: 'Knowledge graph Q&A',
+    desc: 'Interpret — ask questions in plain language and get answers grounded in bill text from the knowledge graph',
     color: '#001d3a',
     to: '/solution',
   },

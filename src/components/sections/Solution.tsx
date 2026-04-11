@@ -13,7 +13,7 @@ export default function Solution() {
           tagBg="#001d3a10"
           tagColor="#001d3a"
           title="Understand, interpret, and act"
-          subtitle="Three user-facing capabilities map to classification, GraphRAG-based explanation, and action generation — translating complex policy into clear outputs. Crisis support sits alongside that pipeline when human help matters most."
+          subtitle="Three user-facing capabilities map to classification, knowledge-graph-backed explanation, and action generation — translating complex policy into clear outputs. Crisis support sits alongside that pipeline when human help matters most."
         />
 
         <div className="grid md:grid-cols-3 gap-5">

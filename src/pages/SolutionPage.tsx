@@ -74,8 +74,8 @@ export default function SolutionPage() {
             How Arc Radius Works
           </h1>
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-lg">
-            A data-driven path from bills to meaning to action: classification, GraphRAG explanations, and grounded
-            advocacy generation — plus crisis support info.
+            A data-driven path from bills to meaning to action: classification, explanations from the knowledge graph,
+            and grounded advocacy generation — plus crisis support info.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
             <Link
