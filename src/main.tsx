@@ -9,7 +9,7 @@ import TeamPage from './pages/TeamPage';
 
 function App() {
   return (
-    <BrowserRouter basename="/arc-radius-website">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/journey" element={<JourneyPage />} />
