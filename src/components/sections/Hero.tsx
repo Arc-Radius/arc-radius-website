@@ -124,8 +124,8 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-            Navigating rights, resources, and support for LGBTQ+ young adults — classification, explanation, and action
-            generation help you understand how legislation affects you and respond with confidence.
+            Navigating rights, resources, and support for LGBTQ+ young adults — understand how legislation affects you
+            and get the tools to respond.
           </p>
 
           {/* Stat ticker */}
