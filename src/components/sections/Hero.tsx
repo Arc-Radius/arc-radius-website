@@ -123,10 +123,9 @@ export default function Hero() {
             Arc Radius
           </h1>
 
-          <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-            A data-driven platform for LGBTQ+ young adults: see how legislation affects your rights, get plain-language
-            explanations, and respond with grounded actions — classification, GraphRAG-based interpretation, and action
-            generation in one flow.
+          <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+            Navigating rights, resources, and support for LGBTQ+ young adults — understand how legislation affects you
+            and get the tools to respond.
           </p>
 
           {/* Stat ticker */}
