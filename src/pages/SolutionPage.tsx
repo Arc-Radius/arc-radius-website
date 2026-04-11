@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import SectionHeader from '../components/ui/SectionHeader';
-import { Check, X } from 'lucide-react';
+import { Check, X, ExternalLink, Play } from 'lucide-react';
 import { ArcRadiusLogoSmall } from '../components/ui/ArcRadiusLogo';
 import {
   FEATURES,
@@ -15,6 +16,8 @@ import {
   FEATURE_ICON_COLORS,
 } from '../data';
 import type { MarketPlayer } from '../types';
+
+const PRODUCT_URL = 'https://arcradius.netlify.app';
 
 function StartupCard({ player }: { player: MarketPlayer }) {
   return (
@@ -73,6 +76,25 @@ export default function SolutionPage() {
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-lg">
             Navigate rights, resources, and support — understand how legislation affects LGBTQ+ young adults and get the tools to respond.
           </p>
+          <div className="mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
+            <Link
+              to="/demo"
+              className="group inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-sm font-semibold transition-all hover:brightness-110 text-[#001d3a]"
+              style={{ backgroundColor: '#FDB515' }}
+            >
+              <Play size={14} className="fill-current shrink-0" />
+              View Demo
+            </Link>
+            <a
+              href={PRODUCT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 bg-slate-50 text-[#001d3a] px-7 py-3 rounded-full text-sm font-semibold border border-slate-200 hover:border-slate-300 hover:bg-slate-100 transition-all"
+            >
+              Open Product
+              <ExternalLink size={14} className="text-slate-500 group-hover:text-[#001d3a] transition-colors shrink-0" />
+            </a>
+          </div>
         </div>
       </section>
 
