@@ -5,7 +5,7 @@ import { ArcRadiusLogo } from '../ui/ArcRadiusLogo';
 
 const ROTATING_STATS = [
   { value: '39%', text: 'of LGBTQ+ youth seriously considered suicide last year' },
-  { value: '530+', text: 'anti-LGBTQ+ bills proposed in 2024 alone' },
+  { value: '600+', text: 'anti-LGBTQ+ bills introduced in state legislatures in 2025 (ACLU)' },
   { value: '50%', text: 'unable to access desired mental health care' },
   {
     value: '90%',
@@ -31,7 +31,7 @@ const FEATURE_PREVIEWS = [
   {
     icon: PenLine,
     title: 'Letter Generation',
-    desc: 'Act — emails, info cards, and flyers generated from retrieved policy context so responses stay concrete',
+    desc: 'Act — emails, phone scripts, info cards, and flyers generated from retrieved policy context so responses stay concrete',
     color: '#001d3a',
     to: '/solution',
   },
@@ -120,12 +120,12 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 text-white">
-            Arc Radius
+            ArcRadius
           </h1>
 
           <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-            Navigating rights, resources, and support for LGBTQ+ young adults — understand how legislation affects you
-            and get the tools to respond.
+            Navigating rights, resources, and support for LGBTQ+ young adults — classification, explanation, and action
+            generation help you understand how legislation affects you and respond with confidence.
           </p>
 
           {/* Stat ticker */}
@@ -174,7 +174,16 @@ export default function Hero() {
             >
               The Trevor Project 2024 National Survey
             </a>
-            . Bill counts reflect public tracking of state-level proposals (same figures as the brief below).
+            . Anti-LGBTQ+ bill introductions in 2025 follow{' '}
+            <a
+              href="https://www.aclu.org/news/lgbt-rights/aclu-tracks-record-number-anti-lgbtq-bills-2025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white/50 transition-colors"
+            >
+              ACLU state-level tracking
+            </a>{' '}
+            (same figure as the brief below).
           </p>
         </div>
       </div>

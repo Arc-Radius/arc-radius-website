@@ -64,7 +64,7 @@ export const STATS: Stat[] = [
     label: 'of LGBTQ+ young people report adverse well-being impacts linked to political developments',
     highlight: false,
   },
-  { value: '530+', label: 'anti-LGBTQ+ bills proposed in 2024 alone', highlight: false },
+  { value: '600+', label: 'anti-LGBTQ+ bills introduced in state legislatures in 2025 (ACLU)', highlight: false },
   { value: '28%', label: 'of youth mental health facilities offer LGBTQ-specific services', highlight: true },
 ];
 
@@ -94,7 +94,7 @@ export const FEATURES: Feature[] = [
     title: 'Act',
     product: 'Letter Generation',
     description:
-      'Turn understanding into civic steps: draft representative emails, shareable info cards, and printable flyers. Outputs are conditioned on retrieved bill context and classifications so actions stay specific and accountable.',
+      'Turn understanding into civic steps: draft representative emails, phone scripts, shareable info cards, and printable flyers. Outputs are conditioned on retrieved bill context, GraphRAG-style explanations, and stance classification so actions stay specific and accountable.',
     color: 'from-rose-400 to-orange-400',
     tech: 'AWS Bedrock · Retrieval · Templates',
   },
@@ -134,20 +134,20 @@ export const IMPACT_ITEMS: ImpactItem[] = [
     icon: MessageCircleWarning,
     title: 'Informed civic action',
     gold: true,
-    desc: 'Understanding should not dead-end in anxiety. Pairing interpretation with concrete actions — letters, cards, community handouts — helps people respond instead of spiraling.',
+    desc: 'Understanding should not dead-end in anxiety. Pairing interpretation with concrete actions — letters, call scripts, cards, community handouts — helps people respond instead of spiraling.',
   },
 ];
 
 // ─── Techniques (updated) ────────────────────────────────
 
 export const TECHNIQUES: Technique[] = [
-  { name: 'LegalBERT Classification', desc: 'Fine-tuned relevance classifier using custom LegalBERTClassifier (raw CLS token). Threshold-tuned at 0.60 with pos_weight=3.0 for class imbalance.', area: 'Policy Navigator' },
+  { name: 'LegalBERT Classification', desc: 'Fine-tuned relevance classifier on bill titles and short descriptions only (no metadata at this stage). Custom LegalBERTClassifier (raw CLS token), threshold 0.60, pos_weight=3.0 for class imbalance.', area: 'Policy Navigator' },
   { name: 'Stance Detection', desc: 'LogReg over 6 political context features: state R-sponsorship ratio, dominant party, percent nay, R/D/other sponsor counts.', area: 'Policy Navigator' },
   { name: 'Serverless Inference', desc: 'SageMaker serverless endpoint (3072MB, ~780ms) packages custom model + LogReg + state profiles in a single model.tar.gz.', area: 'Policy Navigator' },
   { name: 'Three-Lambda Pipeline', desc: 'EventBridge → Poll (LegiScan) → Classify (SageMaker) → Embed (Bedrock + Neo4j). Incremental saves every 100 bills.', area: 'Policy Navigator' },
   { name: 'Knowledge Graph Retrieval', desc: 'GraphRAG-style Q&A: bill text chunked at section boundaries, embedded via Titan V2 (1024-dim), Neo4j cosine vector index.', area: 'Policy Navigator' },
   { name: 'Neo4j Schema', desc: 'Bill, State, Session, Topic, Document, Chunk nodes. Relationships: IN_STATE, IN_SESSION, HAS_TOPIC, HAS_DOCUMENT, HAS_CHUNK.', area: 'Policy Navigator' },
-  { name: 'Advocacy Generation', desc: 'Bedrock Claude generates letters, info cards, and flyers using retrieved bill context and stance classification as grounding.', area: 'Letter Generation' },
+  { name: 'Advocacy Generation', desc: 'Bedrock Claude generates letters, phone scripts, info cards, and flyers using retrieved bill context and stance classification as grounding.', area: 'Letter Generation' },
   { name: 'Topic Categorization', desc: '9 issue categories: healthcare, sports, education, curriculum, facilities, religious exemption, identity docs, expression, civil rights.', area: 'Policy Navigator' },
 ];
 
@@ -160,7 +160,7 @@ export const COMPETITORS: Competitor[] = [
   { name: 'Everywhere Is Queer', resources: true, policy: false, crisis: false },
   { name: 'QLIST', resources: true, policy: false, crisis: false },
   { name: 'Voda', resources: false, policy: false, crisis: false },
-  { name: 'Arc Radius', resources: true, policy: true, crisis: true, highlight: true },
+  { name: 'ArcRadius', resources: true, policy: true, crisis: true, highlight: true },
 ];
 
 export const STARTUPS: MarketPlayer[] = [
@@ -178,7 +178,11 @@ export const ESTABLISHED_PLAYERS: MarketPlayer[] = [
 // ─── Tech Stack ──────────────────────────────────────────
 
 export const TECH_STACK: TechStackCategory[] = [
-  { category: 'Data Sources', items: ['LegiScan', 'SAMHSA', 'MAP', 'Findhelp', 'PubMed'] },
+  {
+    category: 'Training & labels',
+    items: ['LegiScan (bill text & metadata)', 'ACLU LGBTQ+ bill labels', 'Plural & related org datasets'],
+  },
+  { category: 'Product & resources', items: ['SAMHSA', 'MAP', 'Findhelp', 'PubMed'] },
   { category: 'ML / NLP', items: ['LegalBERT', 'LogReg', 'Bedrock Titan V2', 'Bedrock Claude'] },
   { category: 'Infrastructure', items: ['AWS Lambda', 'SageMaker', 'EventBridge', 'S3', 'Neo4j AuraDB'] },
   { category: 'Frontend', items: ['React Native', 'Expo Router', 'NativeWind', 'TypeScript'] },
@@ -187,7 +191,7 @@ export const TECH_STACK: TechStackCategory[] = [
 export const PIPELINES: Pipeline[] = [
   { feature: 'Bill Classification', flow: 'LegiScan → LegalBERT → Stance LogReg → Labels' },
   { feature: 'Knowledge Graph', flow: 'Bill Text → Chunk → Bedrock Embed → Neo4j Vector Index' },
-  { feature: 'Advocacy Generation', flow: 'Bill Context → Retrieval → Claude → Letter/Card/Flyer' },
+  { feature: 'Advocacy Generation', flow: 'Bill Context → GraphRAG retrieval → Claude → Letter/Phone script/Card/Flyer' },
   { feature: 'Crisis Connect', flow: 'Curated Database → Deep Links → Privacy Guidance' },
 ];
 

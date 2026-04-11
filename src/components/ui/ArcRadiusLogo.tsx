@@ -9,7 +9,7 @@ export const ArcRadiusLogo = ({
 }) => (
   <img
     src={arcRadiusLogoPng}
-    alt="Arc Radius"
+    alt="ArcRadius"
     width={size}
     height={size}
     className={`rounded-full ${className}`}
@@ -25,7 +25,7 @@ export const ArcRadiusLogoSmall = ({
 }) => (
   <img
     src={arcRadiusLogoPng}
-    alt="Arc Radius"
+    alt="ArcRadius"
     width={size}
     height={size}
     className="rounded-full"

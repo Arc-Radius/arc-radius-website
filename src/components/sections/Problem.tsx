@@ -57,7 +57,7 @@ export default function Problem() {
               <p className="text-slate-500 leading-relaxed text-sm">
                 Information about bills exists, but it is scattered, written in technical legal language, and hard to
                 connect to your situation. It is difficult to know what is reliable, whether a measure affects you
-                personally, and what actions — if any — make sense. Arc Radius exists to move people from confusion and
+                personally, and what actions — if any — make sense. ArcRadius exists to move people from confusion and
                 uncertainty toward understanding and informed civic action, with crisis and resources available when
                 support matters as much as policy clarity.
               </p>
@@ -76,7 +76,7 @@ export default function Problem() {
                 icon: Scale,
                 color: '#001d3a',
                 title: 'Legislative volume',
-                desc: '530+ anti-LGBTQ+ bills proposed in 2024 alone; bills touch healthcare, schools, IDs, public life, and more',
+                desc: '600+ anti-LGBTQ+ bills introduced in state legislatures in 2025 (ACLU); bills touch healthcare, schools, IDs, public life, and more',
               },
               {
                 icon: AlertTriangle,

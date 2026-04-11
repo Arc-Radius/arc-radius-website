@@ -29,7 +29,7 @@ function StartupCard({ player }: { player: MarketPlayer }) {
       <p className="text-sm text-slate-500 mb-3">{player.product}</p>
       <div className="text-xs text-slate-400 mb-3"><span className="font-semibold text-slate-500">Target:</span> {player.customer}</div>
       <div className="rounded-lg p-3" style={{ backgroundColor: '#FDB51515' }}>
-        <div className="text-xs font-semibold mb-1" style={{ color: '#b8860b' }}>Gap vs. Arc Radius</div>
+        <div className="text-xs font-semibold mb-1" style={{ color: '#b8860b' }}>Gap vs. ArcRadius</div>
         <p className="text-xs" style={{ color: '#9a7209' }}>{player.gap}</p>
       </div>
     </div>
@@ -46,7 +46,7 @@ function EstablishedCard({ player }: { player: MarketPlayer }) {
       <p className="text-sm text-slate-500 mb-3">{player.product}</p>
       <div className="text-xs text-slate-400 mb-3"><span className="font-semibold text-slate-500">Target:</span> {player.customer}</div>
       <div className="rounded-lg p-3 mb-3" style={{ backgroundColor: '#FDB51515' }}>
-        <div className="text-xs font-semibold mb-1" style={{ color: '#b8860b' }}>Gap vs. Arc Radius</div>
+        <div className="text-xs font-semibold mb-1" style={{ color: '#b8860b' }}>Gap vs. ArcRadius</div>
         <p className="text-xs" style={{ color: '#9a7209' }}>{player.gap}</p>
       </div>
       {player.relationship && (
@@ -71,7 +71,7 @@ export default function SolutionPage() {
             The Solution
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#001d3a] mb-4">
-            How Arc Radius Works
+            How ArcRadius Works
           </h1>
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-lg">
             A data-driven path from bills to meaning to action: classification, explanations from the knowledge graph,
@@ -146,7 +146,7 @@ export default function SolutionPage() {
             tagBg="#FDB51520"
             tagColor="#b8860b"
             title="Technical Deep Dive"
-            subtitle="From bill classification to knowledge graph — the full pipeline powering Arc Radius."
+            subtitle="From bill classification to knowledge graph — the full pipeline powering ArcRadius."
           />
 
           {/* Pipeline steps */}
@@ -163,7 +163,7 @@ export default function SolutionPage() {
               ))}
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
               {TECH_STACK.map((stack, i) => (
                 <div key={i}>
                   <div className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-3">{stack.category}</div>
@@ -247,7 +247,7 @@ export default function SolutionPage() {
               </table>
             </div>
             <p className="text-center text-slate-400 mt-6 text-sm">
-              Arc Radius is the <span className="font-semibold text-[#001d3a]">only platform</span> combining all three critical functions.
+              ArcRadius is the <span className="font-semibold text-[#001d3a]">only platform</span> combining all three critical functions.
             </p>
           </div>
         </div>

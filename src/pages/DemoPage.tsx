@@ -15,7 +15,7 @@ const DEMO_HIGHLIGHTS = [
     icon: PenLine,
     time: '2:15',
     title: 'Letter Generation',
-    desc: 'Generate advocacy emails, info cards, and flyers grounded in bill context.',
+    desc: 'Generate advocacy emails, phone scripts, info cards, and flyers grounded in bill context.',
     color: '#001d3a',
   },
   {
@@ -44,7 +44,7 @@ export default function DemoPage() {
             Demo
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#001d3a] mb-4">
-            See Arc Radius in Action
+            See ArcRadius in Action
           </h1>
           <p className="text-slate-500 max-w-xl mx-auto leading-relaxed text-lg">
             A walkthrough of the platform — from tracking legislation to
@@ -133,7 +133,7 @@ export default function DemoPage() {
 
           {/* Video caption */}
           <p className="text-center text-xs text-slate-400 mt-4">
-            Arc Radius Demo · Spring 2026 · UC Berkeley MIDS W210 Capstone
+            ArcRadius Demo · Spring 2026 · UC Berkeley MIDS W210 Capstone
           </p>
         </div>
       </section>
