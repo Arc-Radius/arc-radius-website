@@ -17,7 +17,7 @@ import {
 } from '../data';
 import type { MarketPlayer } from '../types';
 
-const PRODUCT_URL = 'https://arcradius.netlify.app';
+const PRODUCT_URL = 'https://arcradius.org';
 
 function StartupCard({ player }: { player: MarketPlayer }) {
   return (
