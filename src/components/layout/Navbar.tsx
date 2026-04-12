@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { X, Menu } from 'lucide-react';
 import { ArcRadiusLogoSmall } from '../ui/ArcRadiusLogo';
 
-const PRODUCT_URL = 'https://arcradius.org';
+const PRODUCT_URL = 'https://arcradi.us';
 
 const NAV_LINKS = [
   { to: '/', label: 'Brief' },

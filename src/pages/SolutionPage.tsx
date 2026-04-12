@@ -17,7 +17,7 @@ import {
 } from '../data';
 import type { MarketPlayer } from '../types';
 
-const PRODUCT_URL = 'https://arcradius.org';
+const PRODUCT_URL = 'https://arcradi.us';
 
 function StartupCard({ player }: { player: MarketPlayer }) {
   return (
