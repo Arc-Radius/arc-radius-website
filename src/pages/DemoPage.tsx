@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Play, Scale, PenLine, Phone } from 'lucide-react';
+import { Scale, PenLine, Phone } from 'lucide-react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 
@@ -27,9 +26,10 @@ const DEMO_HIGHLIGHTS = [
   },
 ];
 
-export default function DemoPage() {
-  const [videoPlaying, setVideoPlaying] = useState(false);
+const DEMO_VIDEO_EMBED =
+  'https://www.youtube.com/embed/bXaBDQ1XsBQ';
 
+export default function DemoPage() {
   return (
     <div className="font-sans bg-slate-50 min-h-screen text-slate-900 overflow-x-hidden">
       <Navbar />
@@ -62,72 +62,13 @@ export default function DemoPage() {
               className="relative w-full"
               style={{ paddingBottom: '56.25%' }}
             >
-              {/*
-                Replace this placeholder with your actual video embed:
-                
-                Option A — YouTube/Vimeo:
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-
-                Option B — Self-hosted MP4:
-                <video
-                  className="absolute inset-0 w-full h-full object-cover"
-                  controls
-                  poster="/demo-poster.jpg"
-                >
-                  <source src="/demo-video.mp4" type="video/mp4" />
-                </video>
-              */}
-
-              {/* Placeholder — remove when you add the real video */}
-              {!videoPlaying ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  {/* Subtle grid pattern */}
-                  <div
-                    className="absolute inset-0 opacity-[0.03]"
-                    style={{
-                      backgroundImage:
-                        'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-                      backgroundSize: '40px 40px',
-                    }}
-                  />
-
-                  {/* Play button */}
-                  <button
-                    onClick={() => setVideoPlaying(true)}
-                    className="relative group"
-                  >
-                    <div
-                      className="w-20 h-20 rounded-full flex items-center justify-center transition-transform group-hover:scale-110"
-                      style={{ backgroundColor: '#FDB515' }}
-                    >
-                      <Play
-                        size={32}
-                        className="text-[#001d3a] ml-1 fill-current"
-                      />
-                    </div>
-                    {/* Pulse ring */}
-                    <div
-                      className="absolute -inset-3 rounded-full animate-ping opacity-20"
-                      style={{ backgroundColor: '#FDB515' }}
-                    />
-                  </button>
-
-                  <p className="text-white/40 text-sm mt-6 font-medium">
-                    Watch the 5-minute demo
-                  </p>
-                </div>
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-white/30 text-sm">
-                    Video embed goes here — replace placeholder in code
-                  </p>
-                </div>
-              )}
+              <iframe
+                title="ArcRadius demo walkthrough"
+                className="absolute inset-0 w-full h-full border-0"
+                src={DEMO_VIDEO_EMBED}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
           </div>
 
