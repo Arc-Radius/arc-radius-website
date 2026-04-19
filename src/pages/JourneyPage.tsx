@@ -19,7 +19,7 @@ type FaqItem = {
 
 const FAQS: FaqItem[] = [
   {
-    q: 'How does ArcRadius classify bills as supportive or harmful?',
+    q: 'How does Arc Radius classify bills as supportive or harmful?',
     a: 'We use a two-stage pipeline. Stage 1 is a fine-tuned LegalBERT relevance model trained only on bill titles and short descriptions (no bill metadata) so downstream work is not skewed by leakage; we prioritize precision on LGBTQ+ relevance because mistakes here drop bills entirely. Stage 2 runs only on LGBTQ+-relevant bills: a metadata-driven logistic regression uses political context — sponsor party mix, state lean, vote patterns — to predict stance. Text-only stance models were weaker on our labeled set, so we chose this approach and tuned selection to minimize false “supportive” labels on harmful bills. Scores and links to source text are always surfaced.',
   },
   {
@@ -28,11 +28,11 @@ const FAQS: FaqItem[] = [
   },
   {
     q: 'Is my data private?',
-    a: 'ArcRadius does not collect personal information or require sign-up. Bill searches and letter generation happen locally or through serverless endpoints that do not store user queries. Crisis Connect links go directly to external services — we never sit between users and crisis resources.',
+    a: 'Arc Radius does not collect personal information or require sign-up. Bill searches and letter generation happen locally or through serverless endpoints that do not store user queries. Crisis Connect links go directly to external services — we never sit between users and crisis resources.',
   },
   {
     q: 'How often is the data updated?',
-    a: 'Our pipeline polls LegiScan via an EventBridge schedule (currently every week). New and updated bills are automatically classified and embedded into the knowledge graph. The system uses change-hash tracking to avoid reprocessing unchanged bills.',
+    a: 'Our pipeline polls LegiScan via an EventBridge schedule (currently every 30 days). New and updated bills are automatically classified and embedded into the knowledge graph. The system uses change-hash tracking to avoid reprocessing unchanged bills.',
   },
   {
     q: 'Can the AI make mistakes in classification?',
@@ -40,11 +40,11 @@ const FAQS: FaqItem[] = [
   },
   {
     q: 'Is this a replacement for legal advice?',
-    a: 'No. ArcRadius is an informational tool, not a legal service. Bill classifications and generated content are AI-assisted and should not be treated as legal counsel. We encourage users to consult with legal professionals for specific situations.',
+    a: 'No. Arc Radius is an informational tool, not a legal service. Bill classifications and generated content are AI-assisted and should not be treated as legal counsel. We encourage users to consult with legal professionals for specific situations.',
   },
   {
     q: 'Who built this and why?',
-    a: 'ArcRadius was built at the UC Berkeley School of Information as a Spring 2026 W210 Capstone Project. The project was born from the belief that safety should never depend on your zip code — and that LGBTQ+ youth deserve tools that help them understand and respond to legislation that directly affects their lives.',
+    a: 'Arc Radius was built at the UC Berkeley School of Information as a Spring 2026 W210 Capstone Project. The project was born from the belief that safety should never depend on your zip code — and that LGBTQ+ youth deserve tools that help them understand and respond to legislation that directly affects their lives.',
   },
 ];
 
@@ -91,7 +91,7 @@ export default function JourneyPage() {
             Our Journey
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#001d3a] mb-4">
-            The Story Behind ArcRadius
+            The Story Behind Arc Radius
           </h1>
           <p className="text-slate-500 max-w-xl mx-auto leading-relaxed text-lg">
             Why we built it, how the AI works, and the principles that guide every design decision.
@@ -104,7 +104,7 @@ export default function JourneyPage() {
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200/60 mb-12">
             <h2 className="text-xl font-semibold text-[#001d3a] mb-4">
-              Why &quot;ArcRadius&quot;?
+              Why &quot;Arc Radius&quot;?
             </h2>
             <div className="space-y-4 text-sm text-slate-500 leading-relaxed">
               <p>
@@ -118,7 +118,7 @@ export default function JourneyPage() {
                 suicide, half unable to access mental health care — and asked: what if there was one place that connected
                 legislation tracking, advocacy tools, and crisis support?
               </p>
-              <p>That question became ArcRadius.</p>
+              <p>That question became Arc Radius.</p>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function JourneyPage() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl font-semibold text-[#001d3a] mb-3 text-center">Designing for trust</h2>
           <p className="text-slate-500 text-center text-sm max-w-2xl mx-auto mb-10 leading-relaxed">
-            ArcRadius is a trust-critical system for a vulnerable audience. Credibility, clarity, and perceived care were
+            Arc Radius is a trust-critical system for a vulnerable audience. Credibility, clarity, and perceived care were
             as important as raw accuracy — so trust shaped both product and technical decisions.
           </p>
           <div className="grid md:grid-cols-3 gap-5">
@@ -284,7 +284,7 @@ export default function JourneyPage() {
             Frequently Asked Questions
           </h2>
           <p className="text-slate-400 text-center text-sm mb-10">
-            Common questions about ArcRadius, our data, and the AI.
+            Common questions about Arc Radius, our data, and the AI.
           </p>
           <div className="bg-white rounded-2xl border border-slate-200/60 px-6 md:px-8">
             {FAQS.map((faq, i) => (

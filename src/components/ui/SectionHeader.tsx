@@ -21,7 +21,7 @@ export default function SectionHeader({
       >
         {tag}
       </span>
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#001d3a] mb-4">
+      <h2 className="text-2xl font-semibold text-[#001d3a] mb-4">
         {title}
       </h2>
       {subtitle && (

@@ -34,7 +34,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-2.5">
           <ArcRadiusLogoSmall size={32} />
           <span className="font-semibold text-lg tracking-tight text-white">
-            ArcRadius
+            Arc Radius
           </span>
         </Link>
 

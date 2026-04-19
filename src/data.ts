@@ -12,7 +12,8 @@ import type {
   Stat,
   Feature,
   Technique,
-  Competitor,
+  MarketLandscapeColumn,
+  MarketLandscapeFeature,
   MarketPlayer,
   TechStackCategory,
   Pipeline,
@@ -147,31 +148,55 @@ export const TECHNIQUES: Technique[] = [
   { name: 'Three-Lambda Pipeline', desc: 'EventBridge → Poll (LegiScan) → Classify (SageMaker) → Embed (Bedrock + Neo4j). Incremental saves every 100 bills.', area: 'Policy Navigator' },
   { name: 'Knowledge Graph Retrieval', desc: 'GraphRAG-style Q&A: bill text chunked at section boundaries, embedded via Titan V2 (1024-dim), Neo4j cosine vector index.', area: 'Policy Navigator' },
   { name: 'Neo4j Schema', desc: 'Bill, State, Session, Topic, Document, Chunk nodes. Relationships: IN_STATE, IN_SESSION, HAS_TOPIC, HAS_DOCUMENT, HAS_CHUNK.', area: 'Policy Navigator' },
-  { name: 'Advocacy Generation', desc: 'Bedrock Claude generates letters, phone scripts, info cards, and flyers using retrieved bill context and stance classification as grounding.', area: 'Letter Generation' },
   { name: 'Topic Categorization', desc: '9 issue categories: healthcare, sports, education, curriculum, facilities, religious exemption, identity docs, expression, civil rights.', area: 'Policy Navigator' },
+  { name: 'Advocacy Generation', desc: 'Bedrock Claude generates letters, phone scripts, info cards, and flyers using retrieved bill context and stance classification as grounding.', area: 'Letter Generation' },
 ];
 
-// ─── Competitors ─────────────────────────────────────────
+// ─── Market landscape matrix (Solution page) ─────────────
 
-export const COMPETITORS: Competitor[] = [
-  { name: 'Trevor Project', resources: false, policy: false, crisis: true },
-  { name: 'Findhelp', resources: true, policy: false, crisis: false },
-  { name: 'MAP', resources: false, policy: true, crisis: false },
-  { name: 'Everywhere Is Queer', resources: true, policy: false, crisis: false },
-  { name: 'QLIST', resources: true, policy: false, crisis: false },
-  { name: 'Voda', resources: false, policy: false, crisis: false },
-  { name: 'ArcRadius', resources: true, policy: true, crisis: true, highlight: true },
+export const MARKET_LANDSCAPE_COLUMNS: MarketLandscapeColumn[] = [
+  { category: 'Policy think tank', name: 'Movement Advancement Project' },
+  { category: 'Crisis support', name: 'The Trevor Project' },
+  { category: 'Electoral · civic', name: 'Ballotpedia, VOTE411' },
+  { category: 'All of the above', name: 'Arc Radius', highlight: true },
 ];
 
-export const STARTUPS: MarketPlayer[] = [
-  { name: 'Everywhere Is Queer', stage: 'Startup', product: 'Directory of 20K+ queer-owned businesses; 250K+ downloads since Feb 2024', customer: 'LGBTQ+ adults seeking businesses', gap: 'No healthcare/services focus; no policy tracking; not youth-specific' },
-  { name: 'QLIST', stage: 'Startup', product: 'Global LGBTQ+ venue guide with 6K+ locations; crowd-sourced', customer: 'LGBTQ+ travelers', gap: 'Nightlife/travel focus; no healthcare, policy, or crisis support' },
-  { name: 'Voda', stage: 'Startup', product: 'AI mental health companion with queer-led meditations and journaling', customer: 'LGBTQ+ adults seeking wellness', gap: 'Self-help only; no resource locator or policy tracking' },
+export const MARKET_LANDSCAPE_FEATURES: MarketLandscapeFeature[] = [
+  {
+    num: '01',
+    title: 'Policy tracking',
+    description: 'Surfaces relevant legislation as it moves through state houses.',
+    values: [true, false, true, true],
+  },
+  {
+    num: '02',
+    title: 'Explanations & impact',
+    description: 'Translates legal language into plain meaning and consequence.',
+    values: [true, true, true, true],
+  },
+  {
+    num: '03',
+    title: 'Enables action',
+    description: 'Provides tools to respond — letters, scripts, calls, votes.',
+    values: [false, true, true, true],
+  },
+  {
+    num: '04',
+    title: 'Youth-friendly',
+    description: 'Designed for the generation actually living through the impact.',
+    values: [false, true, true, true],
+  },
+  {
+    num: '05',
+    title: 'LGBTQ+ focused',
+    description: 'Built specifically for LGBTQ+ rights, not as a side category.',
+    values: [true, true, false, true],
+  },
 ];
 
 export const ESTABLISHED_PLAYERS: MarketPlayer[] = [
   { name: 'Trevor Project', stage: 'Nonprofit', product: 'Crisis hotline, chat, text; TrevorSpace community for ages 13-24', customer: 'LGBTQ+ youth in crisis', gap: 'Crisis-focused; no local resource discovery or policy info', relationship: 'Integration Partner' },
-  { name: 'Findhelp', stage: 'Enterprise', product: 'Largest US social care network; B2B platform for healthcare/govt', customer: 'Healthcare systems, government', gap: 'B2B only; not LGBTQ-specific; no direct consumer app', relationship: 'API Partner' },
+  { name: 'LegiScan', stage: 'Enterprise', product: 'Legislative tracking API: bill text, metadata, and history across all 50 states', customer: 'Researchers, developers, organizations', gap: 'Raw legislative data; not interpretation, advocacy tools, or crisis routing in one product', relationship: 'Data Source' },
   { name: 'Movement Advancement Project', stage: 'Nonprofit', product: 'Tracks 50+ LGBTQ policies across all states; static maps and reports', customer: 'Researchers, advocates, policymakers', gap: 'Reference tool; no AI Q&A; no resource locator', relationship: 'Data Source' },
 ];
 
@@ -182,7 +207,10 @@ export const TECH_STACK: TechStackCategory[] = [
     category: 'Training & labels',
     items: ['LegiScan (bill text & metadata)', 'ACLU LGBTQ+ bill labels', 'Plural & related org datasets'],
   },
-  { category: 'Product & resources', items: ['SAMHSA', 'MAP', 'Findhelp', 'PubMed'] },
+  {
+    category: 'Product & resources',
+    items: ['LegiScan', 'ACLU', 'MAP', 'Trevor Project', 'Equality Federation'],
+  },
   { category: 'ML / NLP', items: ['LegalBERT', 'LogReg', 'Bedrock Titan V2', 'Bedrock Claude'] },
   { category: 'Infrastructure', items: ['AWS Lambda', 'SageMaker', 'EventBridge', 'S3', 'Neo4j AuraDB'] },
   { category: 'Frontend', items: ['React Native', 'Expo Router', 'NativeWind', 'TypeScript'] },

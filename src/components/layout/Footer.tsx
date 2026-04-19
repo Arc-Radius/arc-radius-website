@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-2">
           <ArcRadiusLogoSmall size={22} />
-          <span className="text-sm font-medium text-[#001d3a]">ArcRadius</span>
+          <span className="text-sm font-medium text-[#001d3a]">Arc Radius</span>
         </div>
         <p className="text-xs text-slate-400">
           UC Berkeley · School of Information · Spring 2026 Capstone

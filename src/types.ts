@@ -21,12 +21,18 @@ export type Technique = {
   area: string;
 };
 
-export type Competitor = {
+export type MarketLandscapeColumn = {
+  category: string;
   name: string;
-  resources: boolean;
-  policy: boolean;
-  crisis: boolean;
   highlight?: boolean;
+};
+
+/** Checkmarks in column order: MAP, Trevor, Ballotpedia/VOTE411, Arc Radius */
+export type MarketLandscapeFeature = {
+  num: string;
+  title: string;
+  description: string;
+  values: [boolean, boolean, boolean, boolean];
 };
 
 export type MarketPlayer = {

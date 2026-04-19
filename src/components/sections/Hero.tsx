@@ -120,7 +120,7 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 text-white">
-            ArcRadius
+            Arc Radius
           </h1>
 
           <p className="text-lg md:text-xl text-white/60 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">

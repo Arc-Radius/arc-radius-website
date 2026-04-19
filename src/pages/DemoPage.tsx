@@ -1,4 +1,4 @@
-import { Scale, PenLine, Phone } from 'lucide-react';
+import { Scale, PenLine, TextSearch, Phone } from 'lucide-react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 
@@ -12,15 +12,22 @@ const DEMO_HIGHLIGHTS = [
   },
   {
     icon: PenLine,
-    time: '2:15',
+    time: '2:20',
     title: 'Letter Generation',
     desc: 'Generate advocacy emails, phone scripts, info cards, and flyers grounded in bill context.',
     color: '#001d3a',
   },
   {
+    icon: TextSearch,
+    time: '2:35',
+    title: 'Ask Feature',
+    desc: 'Ask natural-language questions about bills and get answers grounded in bill text from the knowledge graph.',
+    color: '#001d3a',
+  },
+  {
     icon: Phone,
-    time: '4:30',
-    title: 'Crisis Connect',
+    time: '2:50',
+    title: 'Get Help',
     desc: 'One-tap access to Trevor Project, Trans Lifeline, 988, and Crisis Text Line.',
     color: '#FDB515',
   },
@@ -44,7 +51,7 @@ export default function DemoPage() {
             Demo
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#001d3a] mb-4">
-            See ArcRadius in Action
+            See Arc Radius in Action
           </h1>
           <p className="text-slate-500 max-w-xl mx-auto leading-relaxed text-lg">
             A walkthrough of the platform — from tracking legislation to
@@ -63,7 +70,7 @@ export default function DemoPage() {
               style={{ paddingBottom: '56.25%' }}
             >
               <iframe
-                title="ArcRadius demo walkthrough"
+                title="Arc Radius demo walkthrough"
                 className="absolute inset-0 w-full h-full border-0"
                 src={DEMO_VIDEO_EMBED}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -74,7 +81,7 @@ export default function DemoPage() {
 
           {/* Video caption */}
           <p className="text-center text-xs text-slate-400 mt-4">
-            ArcRadius Demo · Spring 2026 · UC Berkeley MIDS W210 Capstone
+            Arc Radius Demo · Spring 2026 · UC Berkeley MIDS W210 Capstone
           </p>
         </div>
       </section>
@@ -89,7 +96,7 @@ export default function DemoPage() {
             Key features demonstrated in the walkthrough
           </p>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {DEMO_HIGHLIGHTS.map((item) => (
               <div
                 key={item.title}
