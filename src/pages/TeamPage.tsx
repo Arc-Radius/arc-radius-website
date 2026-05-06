@@ -12,7 +12,7 @@ const TEAM_MEMBERS = [
       'Project Coordination',
       'Engineering Support',
     ],
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/beth-mcbride-phd-a81a3139/',
     photo: null, // replace with import or URL
   },
   {
@@ -24,7 +24,7 @@ const TEAM_MEMBERS = [
       'UI/UX Design',
       'Data Infrastructure',
     ],
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/chase-martin-dev/',
     photo: null,
   },
   {
@@ -36,7 +36,7 @@ const TEAM_MEMBERS = [
       'Architecture Design',
       'API Integration',
     ],
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/ambroquach/',
     photo: null,
   },
   {
@@ -48,7 +48,7 @@ const TEAM_MEMBERS = [
       'Data Visualization',
       'Explanatory Analysis',
     ],
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/ishani-cheshire/',
     photo: null,
   },
   {
@@ -60,7 +60,7 @@ const TEAM_MEMBERS = [
       'ML Ops/Deployment',
       'Generative AI Systems',
     ],
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/indri-adisoemarta/',
     photo: null,
   },
 ];
