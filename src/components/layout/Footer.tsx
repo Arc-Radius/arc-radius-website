@@ -1,9 +1,7 @@
 import { ArcRadiusLogoSmall } from '../ui/ArcRadiusLogo';
 
 const FOOTER_LINKS = [
-  { href: '#', label: 'GitHub' },
-  { href: '#', label: 'Documentation' },
-  { href: '#', label: 'Contact' },
+  { href: 'https://github.com/Arc-Radius', label: 'GitHub' },
 ];
 
 export default function Footer() {
@@ -22,6 +20,8 @@ export default function Footer() {
             <a
               key={link.label}
               href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-[#001d3a] transition-colors"
             >
               {link.label}
